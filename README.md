@@ -1,8 +1,8 @@
 # Domain: Traffic data
 
 ### Why are we interested in this field/domain?
-> We are interested in this domain because we want to know how traffic has
-changed over time. We believe it is relevant for people to know how Washington’s traffic has changed so we can find opportunities to improve it.
+We are interested in this domain because we want to know how traffic has
+changed over time. We believe it is relevant for people to know how Seattle's traffic has changed so we can find opportunities to improve it.
 
 ### What other examples of data driven projects we have found related to this domain?
 
@@ -26,10 +26,12 @@ intricate data manipulation.
 
 Three questions we came up with are:
 - Which cities and freeways have the worst congestion rates?
-- How much has traffic flow changed over 10 years?
+- Which areas have the most collisions happened?
 - Is there a relationship between collisions and traffic flow?
 
 ### Finding Data
-- https://data.seattle.gov/Transportation/Traffic-Flow-Map-Volumes/38vd-gytv
-- https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d
--
+- The dataset on Traffic Flow Map Volumes was downloaded from the official [Seattle government website.](https://data.seattle.gov/Transportation/Traffic-Flow-Map-Volumes/38vd-gytv) The data was collected by the Seattle Department of Transportation and provided by the City of Seattle. The owner of the dataset is Craig Moore. Traffic flow was collected using a series of sensors placed on various streets in Seattle. There are 437 observations and 7 columns in the dataset. The question this data set can answer is: how much has traffic flow changed over time?
+
+- The dataset on Collisions was also downloaded from the official [Seattle government website.](https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d) All collisions were provided by the Seattle Policed Department (SPD) and recorded by Traffic Records. The dataset’s owner is Claire Palay. The data was collected by the SPD's police reports. There are 219,314 rows and 40 columns in the dataset. The question this data set can answer is: which areas have the most collisions happened?
+
+- The Historical Traffic Volumes dataset was downloaded from the [Washington State Department of Transportation (WSDOT).](https://www.wsdot.wa.gov/mapsdata/tools/trafficplanningtrends.htm) It contains Current and Archived GIS Source Data Files and Historic AADT and Truck Percentage Dataset. It shows the Annual Average Daily Traffic (AADT) volumes and truck percentages through a map interface and hourly traffic volume data and monthly statistics collected from the Department’s network of Permanent Traffic Recorders (PTRs). There are 198,551 rows and 14 columns in the datasets of historic traffic volumes. The question this dataset can answer is : which cities and freeways have the worst congestion rates?
