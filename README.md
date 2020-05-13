@@ -26,12 +26,15 @@ intricate data manipulation.
 
 Three questions we came up with are:
 - Which cities and freeways have the worst congestion rates?
-- Which areas have the most collisions happened?
+    - We plan to use a bar chart or histogram to compare congestion rates and to find out which cities and freeways have the highest congestion numbers.
+- Which areas have the most of a specific type of collision?
+   - We plan to group different collisions within different areas and then comparing the results with graph analysis such as histogram.
 - Is there a relationship between collisions and traffic flow?
+    - We plan to make a side-by-side line graph with the two numeric variables to see if they increase/decrease with each other.
 
 ### Finding Data
 - The dataset on Traffic Flow Map Volumes was downloaded from the official [Seattle government website.](https://data.seattle.gov/Transportation/Traffic-Flow-Map-Volumes/38vd-gytv) The data was collected by the Seattle Department of Transportation and provided by the City of Seattle. The owner of the dataset is Craig Moore. Traffic flow was collected using a series of sensors placed on various streets in Seattle. There are 437 observations and 7 columns in the dataset. The question this data set can answer is: how much has traffic flow changed over time?
 
-- The dataset on Collisions was also downloaded from the official [Seattle government website.](https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d) All collisions were provided by the Seattle Policed Department (SPD) and recorded by Traffic Records. The dataset’s owner is Claire Palay. The data was collected by the SPD's police reports. There are 219,314 rows and 40 columns in the dataset. The question this data set can answer is: which areas have the most collisions happened?
+- The dataset on Collisions was also downloaded from the official [Seattle government website.](https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d) All collisions were provided by the Seattle Policed Department (SPD) and recorded by Traffic Records. The dataset’s owner is Claire Palay. The data was collected by the SPD's police reports. There are 219,314 rows and 40 columns in the dataset. The question this data set can answer is: which areas have the most of a specific type of collision?
 
 - The Historical Traffic Volumes dataset was downloaded from the [Washington State Department of Transportation (WSDOT).](https://www.wsdot.wa.gov/mapsdata/tools/trafficplanningtrends.htm) It contains Current and Archived GIS Source Data Files and Historic AADT and Truck Percentage Dataset. It shows the Annual Average Daily Traffic (AADT) volumes and truck percentages through a map interface and hourly traffic volume data and monthly statistics collected from the Department’s network of Permanent Traffic Recorders (PTRs). There are 198,551 rows and 14 columns in the datasets of historic traffic volumes. The question this dataset can answer is : which cities and freeways have the worst congestion rates?
