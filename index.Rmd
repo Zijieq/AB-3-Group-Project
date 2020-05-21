@@ -5,8 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 source("scripts/MAP.R")
-register_google(key = "AIzaSyBuvi7L7rY8RLZSlXLFoq8YULs-rXy_7qw", write = TRUE)
-traffic_collision <- read.csv("data/Collisions.csv", stringsAsFactors = FALSE)
+traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
