@@ -1,0 +1,19 @@
+---
+title: "Traffic Collisions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("scripts/MAP.R")
+register_google(key = "AIzaSyBuvi7L7rY8RLZSlXLFoq8YULs-rXy_7qw", write = TRUE)
+traffic_collision <- read.csv("data/Collisions.csv", stringsAsFactors = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Map: Traffic Collisions in Wasghinton State (2017)
+
+In here we try to use a map to demonstrate in which area of Washington State had the highest amount of traffic collisions during 2017. For finding which area inside Washington State has the highest number of traffic collision, we decide to use map to help users to illustrate this.
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+draw_map(traffic_collision)
+```
+As we can zoom in for the detailed information, most of traffic collisions happened within the area of downtown (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). And the farther way from Seattle downtown and Tacoma, the less traffic collisions occured.
