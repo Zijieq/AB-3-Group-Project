@@ -14,3 +14,6 @@ draw_bar_plot <- function(dataframe) {
     coord_flip()
   return(plot)
 }
+
+library("lintr")
+lint("bar_plot.R")
