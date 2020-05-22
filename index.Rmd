@@ -25,3 +25,8 @@ In here we try to use a pie chart to demonstrate the percent distribution of the
 draw_pie_chart(traffic_collision)
 ```
 As we can see directly from the pie chart, 62.6% of the collision were happened at the block, which has 7476 incidents. And another type, intersection, which has 4475 incidents, is having a percentage of 37.4%.
+
+## Bar Plot: Road Conditions vs. Number of Collisions
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+draw_bar_plot(traffic_collision)
+```
