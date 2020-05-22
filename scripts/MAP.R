@@ -14,7 +14,8 @@ library("leaflet")
 
 draw_map <- function(dataframe) {
     map <- leaflet(dataframe) %>%
-    addProviderTiles("CartoDB.Positron") %>%
+    addProviderTiles("CartoDB.Positron",
+                     options = providerTileOptions(minZoom = 10)) %>%
     setView(lat = 47.6, lng = -122.3, zoom = 10) %>%
     addMarkers(
       clusterOptions = markerClusterOptions(),
