@@ -12,7 +12,7 @@ draw_pie_chart <- function(dataframe) {
           type = "pie")
   plot <- plot %>%
     layout(
-      title = "The percent distribution of address type in collisions 2017"
+      title = "Percent Distribution of Address Type in Collisions 2017"
       )
   return(plot)
 }

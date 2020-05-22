@@ -6,10 +6,10 @@ library("plotly")
 
 draw_bar_plot <- function(dataframe) {
   filter_dataframe <- dataframe %>%
-    filter(!is.na(WEATHER) | WEATHER != "{}")
+    filter(!is.na(WEATHER) | WEATHER != "")
   plot <- ggplot(data = filter_dataframe) +
     geom_bar(mapping = aes(x = WEATHER, fill = SEVERITYDESC)) +
-    labs(x = "Weather Type", y = "Number of Collisions",
+    labs(x = "Weather Type", y = "Count",
          title = "Number of Collisions vs. Weather Type ") +
     coord_flip()
   return(plot)
