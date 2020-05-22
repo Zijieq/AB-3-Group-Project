@@ -5,15 +5,29 @@ output: html_document
 
 ```{r setup, include=FALSE}
 source("scripts/MAP.R")
-register_google(key = "AIzaSyBuvi7L7rY8RLZSlXLFoq8YULs-rXy_7qw", write = TRUE)
-traffic_collision <- read.csv("data/Collisions.csv", stringsAsFactors = FALSE)
+source("scripts/second_chart.R")
+source("scripts/bar_plot.R")
+traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Map: Traffic Collisions in Wasghinton State (2017)
+## Map: Traffic Collisions in Washington State (2017)
 
 In here we try to use a map to demonstrate in which area of Washington State had the highest amount of traffic collisions during 2017. For finding which area inside Washington State has the highest number of traffic collision, we decide to use map to help users to illustrate this.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_map(traffic_collision)
 ```
-As we can zoom in for the detailed information, most of traffic collisions happened within the area of downtown (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). And the farther way from Seattle downtown and Tacoma, the less traffic collisions occured.
+As we can zoom in for the detailed information, most of traffic collisions happened within the area of downtown (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). And the farther way from Seattle downtown and Tacoma, the less traffic collisions occured
+
+## Chart: Percent distribution of collisions address type
+
+In here we try to use a pie chart to demonstrate the percent distribution of the address types in traffic collisions during 2017. To see which type of address is much easier to get collisions happened, we decide to use a pie chart to let the user see which type is having a higher percentage. Since many collisions did not have a exact location code, so we filtered out untrackable information and leave with two types: block and intersection.
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+draw_pie_chart(traffic_collision)
+```
+As we can see directly from the pie chart, 62.6% of the collision were happened at the block, which has 7476 incidents. And another type, intersection, which has 4475 incidents, is having a percentage of 37.4%.
+
+## Bar Plot: Road Conditions vs. Number of Collisions
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+draw_bar_plot(traffic_collision)
+```
