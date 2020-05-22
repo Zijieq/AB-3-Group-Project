@@ -1,7 +1,3 @@
-# load neccessary packages
-# install.packages("ggmap")
-# install.packages("ggalt")
-
 library("dplyr")
 library("ggplot2")
 library("plotly")
@@ -25,4 +21,3 @@ draw_map <- function(dataframe) {
     )
   return(map)
 }
-
