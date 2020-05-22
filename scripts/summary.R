@@ -4,7 +4,7 @@ library(dplyr)
 
 
 #set up the working directory in which the dataset is stored
-collision_data <- read.csv('Collisions.csv', stringsAsFactors=FALSE)
+collision_data <- read.csv('lat_long.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
 colnames(collision_data)
 
 summary(collision_data)
@@ -48,24 +48,9 @@ rate_injuries_speeding <- collision_data %>%
                                         accuracy = 0.01)) %>% 
   pull(average_injury_rate)
 
-# which year has the most collision
-most_collision_year <- collision_data %>% 
-  mutate(DATE = as.Date(INCDATE,"%Y/%m/%d"),
-         year = as.numeric(format(DATE,"%Y"))) %>% 
-  group_by(year) %>% 
-  summarise(n_collision=n()) %>% 
-  filter(n_collision==max(n_collision,na.rm = TRUE)) %>% 
-  pull(year)
 
-# Which year has the most drug or alcohol related fatalities
-drug_alcohol_fatalities_year <- collision_data %>%
-  mutate(DATE = as.Date(INCDATE,"%Y/%m/%d"),
-         year = as.numeric(format(DATE,"%Y"))) %>%
-  filter(UNDERINFL %in% c("1","Y")) %>% 
-  group_by(year) %>% 
-  summarise(fatalities_year=sum(FATALITIES,na.rm = TRUE)) %>% 
-  filter(fatalities_year == max(fatalities_year,na.rm = TRUE)) %>% 
-  pull(year)
+
+
 
 
 
