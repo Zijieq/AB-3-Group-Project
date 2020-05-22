@@ -16,4 +16,3 @@ draw_pie_chart <- function(dataframe) {
       )
   return(plot)
 }
-

@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Map: Traffic Collisions in Washington State (2017)
 
 We utilized a map to demonstrate in which area of Washington State had the highest amount of traffic collisions in 2017.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_map(traffic_collision)
 ```
@@ -26,6 +27,7 @@ To see which address type had the more collisions in 2017, we decided to use a p
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_pie_chart(traffic_collision)
 ```
+
 From the pie chart, we can conclude that more collisions occurred in block-type addresses. 62.6% of collisions happened at blocks (7476 incidents). 37.4% of collisions happened at intersections (4475 incidents).
 
 ## Bar Plot: Weather Type vs. Severity of a Collision
