@@ -1,81 +1,65 @@
 rm(list = ls())
 library(lintr)
 library(dplyr)
-
-
-#set up the working directory in which the dataset is stored
-<<<<<<< HEAD
-collision_data <- read.csv('lat_long.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
-=======
-collision_data <- read.csv('Collisions.csv', stringsAsFactors=FALSE)
->>>>>>> 6151753678b02998ae56b24dfeddfe430c73e938
-colnames(collision_data)
-
-summary(collision_data)
-
-column_name <- colnames(collision_data)
-n_row <- nrow(collision_data)
-n_column <- ncol(collision_data)
-
-
-# Average number of people involved in collisions 
-average_n_involved <- collision_data %>% 
-  summarise(involved = mean(PERSONCOUNT,na.rm = TRUE)) %>% 
-  pull(involved)
-
-#Average survival rate
-average_survival_rate <- collision_data %>%
-  filter(PERSONCOUNT!=0) %>% 
-  summarise(survival_rate = percent(mean((PERSONCOUNT-FATALITIES)/PERSONCOUNT,na.rm = TRUE),
-                                    accuracy = 0.01)) %>% 
-  pull(survival_rate)
-
-# What weather has the most collisions occurred
-weather_most_collision <- collision_data %>% 
-  group_by(WEATHER) %>% 
-  summarise(n_collision=n()) %>% 
-  filter(n_collision==max(n_collision,na.rm = TRUE)) %>% 
-  pull(WEATHER)
-
-# Under which weather the fatalities become the highest?
-weather_fatal <- collision_data %>% 
-  group_by(WEATHER) %>% 
-  summarise(n_fatalities = sum(FATALITIES,na.rm = TRUE)) %>%
-  filter(n_fatalities == max(n_fatalities,na.rm = TRUE)) %>%
-  pull(WEATHER)
-
-# Average rate of injuries in the case of speeding
-rate_injuries_speeding <- collision_data %>% 
-  filter(SPEEDING=="Y") %>% 
-  filter(PERSONCOUNT!=0) %>% 
-  summarise(average_injury_rate=percent(mean(INJURIES/PERSONCOUNT,na.rm = TRUE),
-                                        accuracy = 0.01)) %>% 
-  pull(average_injury_rate)
-
-<<<<<<< HEAD
+library(scales)
 
 
 
-=======
-# which year has the most collision
-most_collision_year <- collision_data %>% 
-  mutate(DATE = as.Date(INCDATE,"%Y/%m/%d"),
-         year = as.numeric(format(DATE,"%Y"))) %>% 
-  group_by(year) %>% 
-  summarise(n_collision=n()) %>% 
-  filter(n_collision==max(n_collision,na.rm = TRUE)) %>% 
-  pull(year)
 
-# Which year has the most drug or alcohol related fatalities
-drug_alcohol_fatalities_year <- collision_data %>%
-  mutate(DATE = as.Date(INCDATE,"%Y/%m/%d"),
-         year = as.numeric(format(DATE,"%Y"))) %>%
-  filter(UNDERINFL %in% c("1","Y")) %>% 
-  group_by(year) %>% 
-  summarise(fatalities_year=sum(FATALITIES,na.rm = TRUE)) %>% 
-  filter(fatalities_year == max(fatalities_year,na.rm = TRUE)) %>% 
-  pull(year)
->>>>>>> 6151753678b02998ae56b24dfeddfe430c73e938
+traffic_collision<- read.csv("./data/lat_long.csv", stringsAsFactors=FALSE, fileEncoding="latin1")
 
+
+
+
+get_summary_info <- function(dataset) {
+  library(stringr)
+  
+  ret <- list()
+  ret$length <- length(dataset)
+  
+  average_n_involved <- traffic_collision %>% 
+    summarise(involved = mean(PERSONCOUNT,na.rm = TRUE)) %>% 
+    pull(involved)
+  
+  ret$average_n_involved <- average_n_involved
+  
+  average_survival_rate <-  traffic_collision%>%
+    filter(PERSONCOUNT!=0) %>% 
+    summarise(survival_rate = percent(mean((PERSONCOUNT-FATALITIES)/PERSONCOUNT,na.rm = TRUE),
+                                      accuracy = 0.01)) %>% 
+    pull(survival_rate)
+  
+  ret$average_survival_rate <- average_survival_rate
+  
+  weather_most_collision <- traffic_collision %>% 
+    group_by(WEATHER) %>% 
+    summarise(n_collision=n()) %>% 
+    filter(n_collision==max(n_collision,na.rm = TRUE)) %>% 
+    pull(WEATHER)
+  
+  ret$weather_most_collision <- weather_most_collision
+  
+  weather_fatal <- traffic_collision %>% 
+    group_by(WEATHER) %>% 
+    summarise(n_fatalities = sum(FATALITIES,na.rm = TRUE)) %>%
+    filter(n_fatalities == max(n_fatalities,na.rm = TRUE)) %>%
+    pull(WEATHER)
+  
+  ret$weather_fatal <- weather_fatal
+  
+  rate_injuries_speeding <-  dataset%>% 
+    filter(SPEEDING=="Y") %>% 
+    filter(PERSONCOUNT!=0) %>% 
+    summarise(average_injury_rate=percent(mean(INJURIES/PERSONCOUNT,na.rm = TRUE),
+                                          accuracy = 0.01)) %>% 
+    pull(average_injury_rate)
+  
+  ret$injuries_speeding <- rate_injuries_speeding
+  
+  return (ret)
+}
+
+
+get_summary_info(traffic_collision)
 
 
