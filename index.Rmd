@@ -4,6 +4,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library("knitr")
+source("scripts/summary_table.R")
 source("scripts/summary.R")
 source("scripts/MAP.R")
 source("scripts/second_chart.R")
@@ -11,6 +13,12 @@ source("scripts/bar_plot.R")
 traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## Introduction
+
+The dataset that we decided to do our project on is 2017 Collisions in Washington state. It was downloaded from the official [Seattle government website](https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d). All collisions were provided by the Seattle Policed Department (SPD) and recorded by Traffic Records. The dataset includes information such as number of people involved in a collision, type of collision, and weather conditions. Each row represents one collision instance. We are interested in discovering insights from this dataset because we believe that finding certain trends, such as how the weather type influences a collision's severity, can help reduce the number collisions in the future by recommending better road warnings and structures.
+
+
 ## Summary Information 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -21,18 +29,30 @@ This report is based on the dataset `r csv_link`. In 2017, there were average `r
 
 
 
-## Map: Traffic Collisions in Washington State (2017)
+## 2017 Collision Types Summary Table
+
+The following table is ranked in decreasing order of the total number of injuries. It is grouped by the type of collision.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+kable(summary_table(traffic_collision))
+```
+
+In this table, we summarized the information to show the top collision types with the highest total injuries. Some of the collision types include Angles (front of one vehicle collides with the sides of the other vehicle), rear ended, and left turn. We included this summary table to see if there were any trends between the collision statistics.
+
+An insight we found from this summary table is that the "Pedestrian" collision type had the most serious injuries and fatalities, with one car being the average number of vehicles involved. Another insight we found was that car collisions generally involved an average number of one to two cars.
+
+## Map: Traffic Collisions in Washington State 2017
 
 We utilized a map to demonstrate in which area of Washington State had the highest amount of traffic collisions in 2017.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_map(traffic_collision)
 ```
-As you zoom in to look at the information in more detail, most of traffic collisions happened within the downtown area of Seattle (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). The farther way from Seattle downtown and Tacoma, the less traffic collisions occured.
+As you zoom in to look at the information in more detail, most of the traffic collisions happened within the downtown area of Seattle (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). The farther away from downtown Seattle and Tacoma, the fewer traffic collisions occurred.
 
-## Chart: Percent distribution of collisions address type
+## Chart: 2017 Percent Distribution of Collisions Address Type
 
-To see which address type had the more collisions in 2017, we decided to use a pie chart to examine which type is had a higher percentage. Since many collisions did not have a exact location code, we filtered out untrackable information and leave with two types: block and intersection.
+To see which address type had the more collisions in 2017, we decided to use a pie chart to examine which type is had a higher percentage. Since many collisions did not have an exact location code, we filtered out untrackable information and leave with two types: block and intersection.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_pie_chart(traffic_collision)
@@ -40,12 +60,12 @@ draw_pie_chart(traffic_collision)
 
 From the pie chart, we can conclude that more collisions occurred in block-type addresses. 62.6% of collisions happened at blocks (7476 incidents). 37.4% of collisions happened at intersections (4475 incidents).
 
-## Bar Plot: Weather Type vs. Severity of a Collision
+## Bar Plot: 2017 Weather Type vs. Severity of a Collision
 
-Lastly, we wanted to see if there was a relationship between the weather and severity of a collision. We used a bar chart to visualize this because the bar chart allowed us to easily distinguish which severity description was better or worse in particular weather based on the visual encoding of length. We kept the blank value for the Weather Type because a substantial amount of collision data was recorded under a blank weather type.
+Lastly, we wanted to see if there was a relationship between the weather and the severity of a collision. We used a bar chart to visualize this because the bar chart allowed us to easily distinguish which severity description was better or worse in particular weather based on the visual encoding of length.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_bar_plot(traffic_collision)
 ```
 
-From this visualization, we can conclude that in all weather types, the most common severity description reported in 2017 was "Property Damage Only Collision" followed by "Injury Collision."  The only exceptions was the unknown values in the blank weather type. We do not know what the unknown values categorize as. The least common severity description recorded was "Fatality Collision." Also, among all weather types, "Clear" was the weather type that had the most Property Damage Only Collision, Injury Collision, and Serious Injury Collision. It is also important to know that Washington weather was generally under the weather type of Raining, Overcast, and Clear with some snow in certain areas in 2017.
+From this visualization, we can conclude that in all weather types, the most common severity description reported in 2017 was "Property Damage Only Collision" followed by "Injury Collision."  The least common severity description recorded was "Fatality Collision." Also, among all weather types, "Clear" was the weather type that had the most Property Damage Only Collision, Injury Collision, and Serious Injury Collision. It was interesting that the clear weather type had the most serious injury collisions compared to raining or overcast because we thought the opposite would happen.
