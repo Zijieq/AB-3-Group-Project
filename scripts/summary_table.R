@@ -1,6 +1,4 @@
 library("dplyr")
-library("ggplot2")
-library("plotly")
 
 # Create table for summary data, grouped by collision types.
 summary_table <- function(dataframe) {

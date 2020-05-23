@@ -1,6 +1,5 @@
 library("dplyr")
 library("ggplot2")
-library("plotly")
 
 # Creating bar plot to see relationship between weather and type of collisions.
 draw_bar_plot <- function(dataframe) {
