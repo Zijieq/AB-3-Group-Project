@@ -13,6 +13,12 @@ source("scripts/bar_plot.R")
 traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+## Introduction
+
+The dataset that we decided to do our project on is 2017 Collisions in Washington state. It was downloaded from the official [Seattle government website.](https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d). All collisions were provided by the Seattle Policed Department (SPD) and recorded by Traffic Records. The dataset includes information such as number of people involved in a collision, type of collision, and weather conditions. Each row represents one collision instance. We are interested in discovering insights from this dataset because we believe that finding certain trends, such as how the weather type influences a collisions severity, can help reduce the number collisions in the future by recommending better road warnings and structures.
+
+
 ## Summary Information 
 
 ```{r source}
