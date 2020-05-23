@@ -21,7 +21,7 @@ The dataset that we decided to do our project on is 2017 Collisions in Washingto
 
 ## Summary Information 
 
-```{r source}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 csv_link <- paste0("[lat_long.csv](./data/lat_long.csv)")
 ```
 This report is based on the dataset `r csv_link`. In 2017, 
