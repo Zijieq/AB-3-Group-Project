@@ -6,12 +6,21 @@ output: html_document
 ```{r setup, include=FALSE}
 library("knitr")
 source("scripts/summary_table.R")
+source("scripts/summary.R")
 source("scripts/MAP.R")
 source("scripts/second_chart.R")
 source("scripts/bar_plot.R")
 traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## Summary Information 
+
+```{r source}
+csv_link <- paste0("[lat_long.csv](./data/lat_long.csv)")
+```
+This report is based on the dataset `r csv_link`. In 2017, 
+
+
 
 ## 2017 Collision Types Summary Table
 

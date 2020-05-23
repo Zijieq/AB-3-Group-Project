@@ -17,4 +17,5 @@ summary_table <- function(dataframe) {
     ) %>%
     arrange(-total_num_injuries) %>%
     head(10)
+  return(grouped_dataframe)
 }
