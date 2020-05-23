@@ -22,21 +22,29 @@ This report is based on the dataset `r csv_link`. In 2017,
 
 ## Map: Traffic Collisions in Washington State (2017)
 
-In here we try to use a map to demonstrate in which area of Washington State had the highest amount of traffic collisions during 2017. For finding which area inside Washington State has the highest number of traffic collision, we decide to use map to help users to illustrate this.
+We utilized a map to demonstrate in which area of Washington State had the highest amount of traffic collisions in 2017.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_map(traffic_collision)
 ```
-As we can zoom in for the detailed information, most of traffic collisions happened within the area of downtown (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). And the farther way from Seattle downtown and Tacoma, the less traffic collisions occured
+As you zoom in to look at the information in more detail, most of traffic collisions happened within the downtown area of Seattle (nearly 2800 occurrences), followed by area which is in the west of Seattle (around 1800 occurrences). The farther way from Seattle downtown and Tacoma, the less traffic collisions occured.
 
 ## Chart: Percent distribution of collisions address type
 
-In here we try to use a pie chart to demonstrate the percent distribution of the address types in traffic collisions during 2017. To see which type of address is much easier to get collisions happened, we decide to use a pie chart to let the user see which type is having a higher percentage. Since many collisions did not have a exact location code, so we filtered out untrackable information and leave with two types: block and intersection.
+To see which address type had the more collisions in 2017, we decided to use a pie chart to examine which type is had a higher percentage. Since many collisions did not have a exact location code, we filtered out untrackable information and leave with two types: block and intersection.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_pie_chart(traffic_collision)
 ```
-As we can see directly from the pie chart, 62.6% of the collision were happened at the block, which has 7476 incidents. And another type, intersection, which has 4475 incidents, is having a percentage of 37.4%.
 
-## Bar Plot: Road Conditions vs. Number of Collisions
+From the pie chart, we can conclude that more collisions occurred in block-type addresses. 62.6% of collisions happened at blocks (7476 incidents). 37.4% of collisions happened at intersections (4475 incidents).
+
+## Bar Plot: Weather Type vs. Severity of a Collision
+
+Lastly, we wanted to see if there was a relationship between the weather and severity of a collision. We used a bar chart to visualize this because the bar chart allowed us to easily distinguish which severity description was better or worse in particular weather based on the visual encoding of length. We kept the blank value for the Weather Type because a substantial amount of collision data was recorded under a blank weather type.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 draw_bar_plot(traffic_collision)
 ```
+
+From this visualization, we can conclude that in all weather types, the most common severity description reported in 2017 was "Property Damage Only Collision" followed by "Injury Collision."  The only exceptions was the unknown values in the blank weather type. We do not know what the unknown values categorize as. The least common severity description recorded was "Fatality Collision." Also, among all weather types, "Clear" was the weather type that had the most Property Damage Only Collision, Injury Collision, and Serious Injury Collision. It is also important to know that Washington weather was generally under the weather type of Raining, Overcast, and Clear with some snow in certain areas in 2017.

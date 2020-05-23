@@ -39,7 +39,7 @@ get_summary_info <- function(dataset) {
   
   ret$weather_most_collision <- weather_most_collision
   
-  weather_fatal <- traffic_collision %>% 
+  weather_fatal <- dataset %>% 
     group_by(WEATHER) %>% 
     summarise(n_fatalities = sum(FATALITIES,na.rm = TRUE)) %>%
     filter(n_fatalities == max(n_fatalities,na.rm = TRUE)) %>%
