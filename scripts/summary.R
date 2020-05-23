@@ -61,5 +61,3 @@ get_summary_info <- function(dataset) {
 
 
 get_summary_info(traffic_collision)
-
-

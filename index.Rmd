@@ -9,14 +9,15 @@ source("scripts/MAP.R")
 source("scripts/second_chart.R")
 source("scripts/bar_plot.R")
 traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 ## Summary Information 
 
-```{r source}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 csv_link <- paste0("[lat_long.csv](./data/lat_long.csv)")
+summary <- get_summary_info(traffic_collision)
 ```
-This report is based on the dataset `r csv_link`. In 2017, 
+This report is based on the dataset `r csv_link`. In 2017, there were average `r summary$average_n_involved` people involved in each collision throughout the Seattle area, the survival rate was `r summary$average_survival_rate`. Most of collisions happened in a `r summary$weather_most_collision` weather, and most of fatalities happened under `r summary$weather_fatal` weather as well. One thing I found interesting is that average rate of injuries in the case of speeding is `r summary$injuries_speeding`.
 
 
 
