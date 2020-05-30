@@ -1,10 +1,17 @@
 page_one_sidePanel <- sidebarPanel(
-  sliderInput(
-    "slide",
-    label = "injured range",
-    min = 0,
-    max = 15,
-    value = c(0, 15)
+  selectInput(
+    "Select",
+    "Select type of Collision",
+    c("Fatality Collision" = "Fatality Collision",
+      "Injury Collision" = "Injury Collision",
+      "Property Damage Collision" = "Property Damage Only Collision",
+      "Serious Injury Collision" = "Serious Injury Collision"
+    ), 
+    selected = "",
+  ),
+  dateRangeInput('dateRange',
+                 label = 'Date range input: yyyy-mm-dd',
+                 start = "2017-01-01", end = "2017-12-31"
   )
 )
 
