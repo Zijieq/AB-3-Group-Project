@@ -1,4 +1,6 @@
-traffic_collision <- read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
+traffic_collision <- reactive({
+  read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
+  })
 
 server <- function(input, output){
   output$traffic_map <- renderLeaflet({
@@ -9,6 +11,13 @@ server <- function(input, output){
              & as.Date(INCDATE) <= input$dateRange[2])
     
     draw_map(relative_data)
+  })
+  
+  output$plot <- renderPlot <- ({
+    relative_data <- traffic_collision %>%
+      filter(WEATHER == input$weather)
     
+    draw_bar_plot(relative_data)
   })
 }
+

@@ -1,7 +1,7 @@
 page_one_sidePanel <- sidebarPanel(
   selectInput(
     "Select",
-    "Select type of Collision",
+    "Select Type of Collision",
     c("Fatality Collision" = "Fatality Collision",
       "Injury Collision" = "Injury Collision",
       "Property Damage Collision" = "Property Damage Only Collision",
@@ -32,8 +32,35 @@ page_one <- tabPanel(
   )
 )
 
+page_two_sidePanel <- sidebarPanel(
+  checkboxGroupInput(
+    inputId = "weather",
+    label = "Select Weather of Collision",
+    choices = c("Snowing" = "Snowing",
+                "Sleet/Hail/Freezing Rain" = "Sleet/Hail/Freezing Rain",
+                "Severe Crosswind" = "Severe Crosswind",
+                "Raining" = "Raining", "Overcast" = "Overcast",
+                "Other" = "Other", "Fog/Smog/Smoke" = "Fog/Smog/Smoke",
+                "Clear" = "Clear", "Blowing Sand/Dirt" = "Blowing Sand/Dirt"
+    )
+  )
+)
+
+page_two-mainPanel <- mainPanel(
+  h2("Bar Chart: Number of Collisions vs. Weather Type"),
+  plotOutput("plot")
+)
+
+page_two <- tabPanel(
+  "Bar Chart",
+  sidebarLayout(
+    page_two_sidePanel,
+    page_two_mainPanel
+  )
+)
 
 ui <- navbarPage(
-  "Collision",
-  page_one
+  "2017 Collisions in Washington",
+  page_one,
+  page_two
 )
