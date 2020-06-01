@@ -1,3 +1,4 @@
+library(dplyr)
 traffic_collision <- reactive({
   read.csv("data/lat_long.csv", stringsAsFactors = FALSE, fileEncoding="latin1")
   })

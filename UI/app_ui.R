@@ -46,7 +46,7 @@ page_two_sidePanel <- sidebarPanel(
   )
 )
 
-page_two-mainPanel <- mainPanel(
+page_two_mainPanel <- mainPanel(
   h2("Bar Chart: Number of Collisions vs. Weather Type"),
   plotOutput("plot")
 )
