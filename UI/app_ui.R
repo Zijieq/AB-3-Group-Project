@@ -21,7 +21,7 @@ page_one_sidepanel <- sidebarPanel(
 page_one_mainpanel <- mainPanel(
   h2("Traffic Collisions in Washington State 2017"),
   p("A question we try to use this map to answer is:
-    Which area of Washington State had the highest
+    Which area of Washington had the highest
     amount of traffic collisions in different time frame of 2017,
     and which type of collisions happened in which areas in Seattle 2017?"),
   p("Map is a better choice to build visualization to tell
@@ -81,17 +81,7 @@ page_two_mainpanel <- mainPanel(
     weather type in Washington in 2017. It is further broken down by how severe
     the collision was, as shown in the color-coded bars."
   ),
-  plotOutput("plot"),
-  p(
-    "From this visualization, we can conclude that in all weather types, the
-    most common severity description reported in 2017 was Property Damage Only
-    Collision followed by Injury Collision. The least common severity
-    description recorded was Fatality Collision. Among all other weather types,
-    Clear was the weather type that had the most Property Damage Only
-    Collision, Injury Collision, and Serious Injury Collision. It was
-    interesting that the clear weather type had the most collisions total
-    and the most serious injury collisions compared to raining or overcast."
-  )
+  plotOutput("plot")
 )
 
 # Creating tab panel for page two.
@@ -123,27 +113,16 @@ page_three_mainpanel <- mainPanel(
   h2("Pie Chart: Percent of Address Types involved in Various Collision Severities"),
   p(
     "A question we want to answer is: How does the percentage of different
-    address types changes with the change of different levels of severity
-    in collisions?"
+    address types change in different levels of collision severities?"
   ),
   p(
     "The following pie charts display the percent distribution of each type of
     address in different level of severity of collision in Washington in 2017.
     It also comes with a pie chart for the collisions in total."
   ),
-  plotlyOutput("chart"),
-  p(
-    "From this visualization, we can conclude that in all severity levels of
-    collisions, the block always has a higher appearance comparing to the
-    intersection. By selecting different severity, intersection always has
-    a higher proportion than block. In Fatality Collision, 61.9% of the cases
-    happened in intersection. In Injury Collision, 52%. In Property Damage
-    Collision, 65.3%. And in Serious Injury Collision, 50.9%. As shown in the
-    data calculation, block and intersection has a much similar percentage,
-    but in Property Damage Collision, these two address types has the biggest
-    difference."
-  )
+  plotlyOutput("chart")
 )
+
 
 # Creating tab panel for page three.
 page_three <- tabPanel(
@@ -154,12 +133,64 @@ page_three <- tabPanel(
   )
 )
 
+# Summary/key takeaways page
+page_summary_mainPanel <- mainPanel(
+  h2("Key Takeaways"),
+  p(
+    "From the questions that inspired us to explore this dataset, we have found 
+    some patterns in the collisions that have occured in Washington in 2017."
+  ),
+  p(
+    "The first subject we wanted to explore was the areas in Washington that had
+    more collisions, and whether a specific time frame had more/less collisions. 
+    The map could be filtered down to show specific collision severities as well
+    as date range. Overall we noticed that more traffic collisions occured in
+    Downtown Seattle area and gradually got less as it moved farther away from
+    the city. Property Damage Only was the most frequent collision in Seattle."
+  ),
+  p(
+    "Secondly, we wanted to determine the relationship between the weather
+    and number of collisions. We visualized which weather type had the
+    most collisions, and broke down the collision numbers by specifying
+    the severity description of the collision. From the bar plot visualization,
+    concluded that in all weather types, the most common severity description 
+    was Property Damage Only Collision followed by Injury Collision. 
+    The least common severity description recorded was Fatality Collision.
+    Among all other weather types, Clear was the weather type that had the
+    most Property Damage Only Collision, Injury Collision, and Serious Injury
+    Collision. It was interesting to see that the clear weather type had the
+    most collisions total and the most serious injury collisions compared to
+    raining or overcast."
+  ),
+  p(
+    "Lastly, we looked at the relationship between address types and severity
+    of a collision. In the pie chart, we visualized the percentage of address 
+    types involved in collisions. Using the radio buttons, a user could then
+    filter which severity of collision they wanted to use to filter the pie chart.
+    According to the pie chart, the most common severity description reported in
+    2017 was Property Damage Only Collision followed by Injury Collision.
+    The least common severity description recorded was Fatality Collision.
+    Among all other weather types, Clear was the weather type that had the
+    most Property Damage Only Collision, Injury Collision, and Serious Injury
+    Collision. It was interesting that the clear weather type had the most 
+    collisions total and the most serious injury collisions compared to raining
+    or overcast."
+  )
+)
+
+# Tab panel for Summary page.
+page_summary <- tabPanel(
+  "Summary",
+  page_summary_mainPanel
+)
+
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
   "2017 Collisions in Washington",
   page_one,
   page_two,
-  page_three
+  page_three,
+  page_summary
   )
 )
