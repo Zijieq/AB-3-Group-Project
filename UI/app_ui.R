@@ -54,7 +54,7 @@ page_one <- tabPanel(
 page_two_sidepanel <- sidebarPanel(
   checkboxGroupInput(
     inputId = "weather",
-    label = "Select Weather of Collision",
+    label = "Select Weather Type",
     choices = c(
       "Clear" = "Clear",
       "Snowing" = "Snowing",
@@ -107,7 +107,7 @@ page_two <- tabPanel(
 page_three_sidepanel <- sidebarPanel(
   radioButtons(
     "severity",
-    "Select severity of collision",
+    "Select Severity of Collision",
     c("All" = "All",
       "Fatality Collision" = "Fatality Collision",
       "Injury Collision" = "Injury Collision",
@@ -120,8 +120,7 @@ page_three_sidepanel <- sidebarPanel(
 
 # Main panel for page three, consisting of visualization and paragraphs.
 page_three_mainpanel <- mainPanel(
-  h2("Pie Chart: Percent of different Address Type involved in different
-     severity of collision"),
+  h2("Pie Chart: Percent of Address Types involved in Various Collision Severities"),
   p(
     "A question we want to answer is: How does the percentage of different
     address types changes with the change of different levels of severity
@@ -155,9 +154,12 @@ page_three <- tabPanel(
   )
 )
 
-ui <- navbarPage(
+ui <- fluidPage(
+  includeCSS("style.css"),
+  navbarPage(
   "2017 Collisions in Washington",
   page_one,
   page_two,
   page_three
+  )
 )
