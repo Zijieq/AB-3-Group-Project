@@ -45,8 +45,8 @@ page_one_mainpanel <- mainPanel(
 page_one <- tabPanel(
   "Map",
   sidebarLayout(
-    page_one_sidePanel,
-    page_one_mainPanel
+    page_one_sidepanel,
+    page_one_mainpanel
   )
 )
 
@@ -98,8 +98,8 @@ page_two_mainpanel <- mainPanel(
 page_two <- tabPanel(
   "Bar Chart",
   sidebarLayout(
-    page_two_sidePanel,
-    page_two_mainPanel
+    page_two_sidepanel,
+    page_two_mainpanel
   )
 )
 
