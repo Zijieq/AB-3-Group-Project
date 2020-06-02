@@ -20,10 +20,10 @@ page_one_sidepanel <- sidebarPanel(
 # Main panel for page one with visualization and paragraphs.
 page_one_mainpanel <- mainPanel(
   h2("Traffic Collisions in Washington State 2017"),
-  p("A question we try to use this map to answer is
-    which area of Washington State had the highest
-    amount of traffic collisions in different months of 2017,
-    and which type of collisions happened in which areas in Seattle 2017"),
+  p("A question we try to use this map to answer is:
+    Which area of Washington State had the highest
+    amount of traffic collisions in different time frame of 2017,
+    and which type of collisions happened in which areas in Seattle 2017?"),
   p("Map is a better choice to build visualization to tell
     users how the collisions spread out in Washington State.
     And it is clear to tell users how many injuries in which areas
@@ -71,13 +71,13 @@ page_two_sidepanel <- sidebarPanel(
 
 # Main panel for page two, consisting of visualization and paragraphs.
 page_two_mainpanel <- mainPanel(
-  h2("Bar Chart: Number of Collisions vs. Weather Type"),
+  h2("Bar Plot: Number of Collisions vs. Weather Type"),
   p(
-    "A question we wanted to answer was: what is the relationship between the
+    "A question we want to answer is: what is the relationship between the
     weather and the severity of a collision?"
   ),
   p(
-    "The following bar chart displays the number of collisions for each
+    "The following bar plot displays the number of collisions for each
     weather type in Washington in 2017. It is further broken down by how severe
     the collision was, as shown in the color-coded bars."
   ),
@@ -96,15 +96,68 @@ page_two_mainpanel <- mainPanel(
 
 # Creating tab panel for page two.
 page_two <- tabPanel(
-  "Bar Chart",
+  "Bar Plot",
   sidebarLayout(
     page_two_sidepanel,
     page_two_mainpanel
   )
 )
 
+# Side panel for selecting severity of collision for page three.
+page_three_sidepanel <- sidebarPanel(
+  radioButtons(
+    "severity",
+    "Select severity of collision",
+    c("All" = "All",
+      "Fatality Collision" = "Fatality Collision",
+      "Injury Collision" = "Injury Collision",
+      "Property Damage Collision" = "Property Damage Only Collision",
+      "Serious Injury Collision" = "Serious Injury Collision"
+    ),
+    selected = "All"
+  )
+)
+
+# Main panel for page three, consisting of visualization and paragraphs.
+page_three_mainpanel <- mainPanel(
+  h2("Pie Chart: Percent of different Address Type involved in different
+     severity of collision"),
+  p(
+    "A question we want to answer is: How does the percentage of different
+    address types changes with the change of different levels of severity
+    in collisions?"
+  ),
+  p(
+    "The following pie charts display the percent distribution of each type of
+    address in different level of severity of collision in Washington in 2017.
+    It also comes with a pie chart for the collisions in total."
+  ),
+  plotlyOutput("chart"),
+  p(
+    "From this visualization, we can conclude that in all severity levels of
+    collisions, the block always has a higher appearance comparing to the
+    intersection. By selecting different severity, intersection always has
+    a higher proportion than block. In Fatality Collision, 61.9% of the cases
+    happened in intersection. In Injury Collision, 52%. In Property Damage
+    Collision, 65.3%. And in Serious Injury Collision, 50.9%. As shown in the
+    data calculation, block and intersection has a much similar percentage,
+    but in Property Damage Collision, these two address types has the biggest
+    difference."
+  )
+)
+
+# Creating tab panel for page three.
+page_three <- tabPanel(
+  "Pie Chart",
+  sidebarLayout(
+    page_three_sidepanel,
+    page_three_mainpanel
+  )
+)
+
 ui <- navbarPage(
   "2017 Collisions in Washington",
   page_one,
-  page_two
+  page_two,
+  page_three
 )

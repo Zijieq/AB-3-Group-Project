@@ -19,4 +19,14 @@ server <- function(input, output) {
       filter(WEATHER == input$weather)
     draw_bar_plot(relative_data)
     })
+    # Create pie chart visualization based on user inputs.
+    output$chart <- renderPlotly({
+      if(input$severity == "All") {
+        draw_pie_chart(traffic_collision)
+      }else {
+        relative_data <- traffic_collision %>%
+          filter(SEVERITYDESC == input$severity)
+        draw_pie_chart(relative_data)
+      }
+    })
 }
