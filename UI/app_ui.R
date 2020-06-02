@@ -1,21 +1,19 @@
-page_one_sidePanel <- sidebarPanel(
+# Create side panel for severity selector and date input.
+sidePanel1 <- sidebarPanel(
   selectInput(
     "Select",
     "Select Type of Collision",
-    c("Fatality Collision" = "Fatality Collision",
-      "Injury Collision" = "Injury Collision",
-      "Property Damage Collision" = "Property Damage Only Collision",
-      "Serious Injury Collision" = "Serious Injury Collision"
-    ), 
+    unique(traffic_collision$SEVERITYDESC),
     selected = "",
   ),
-  dateRangeInput('dateRange',
-                 label = 'Date range input: yyyy-mm-dd',
+  dateRangeInput("dateRange",
+                 label = "Date range input: yyyy-mm-dd",
                  start = "2017-01-01", end = "2017-12-31"
   )
 )
 
-page_one_mainPanel <- mainPanel(
+# Main panel for page one with visualization and paragraphs.
+mainPanel1 <- mainPanel(
   h2("Traffic Collisions in Washington State 2017"),
   p("Map is a better choice to build visualization to tell
     users how the collisions spread out in Washington State.
@@ -24,38 +22,65 @@ page_one_mainPanel <- mainPanel(
   leafletOutput("traffic_map")
 )
 
+# Creating tab panel.
 page_one <- tabPanel(
   "Map",
   sidebarLayout(
-    page_one_sidePanel,
-    page_one_mainPanel
+    sidePanel1,
+    mainPanel1
   )
 )
 
-page_two_sidePanel <- sidebarPanel(
+# Side panel for selecting weather for page two.
+sidePanel2 <- sidebarPanel(
   checkboxGroupInput(
     inputId = "weather",
     label = "Select Weather of Collision",
-    choices = c("Snowing" = "Snowing",
-                "Sleet/Hail/Freezing Rain" = "Sleet/Hail/Freezing Rain",
-                "Severe Crosswind" = "Severe Crosswind",
-                "Raining" = "Raining", "Overcast" = "Overcast",
-                "Other" = "Other", "Fog/Smog/Smoke" = "Fog/Smog/Smoke",
-                "Clear" = "Clear", "Blowing Sand/Dirt" = "Blowing Sand/Dirt"
-    )
+    choices = c(
+      "Clear" = "Clear",
+      "Snowing" = "Snowing",
+      "Sleet/Hail/Freezing Rain" = "Sleet/Hail/Freezing Rain",
+      "Raining" = "Raining",
+      "Overcast" = "Overcast",
+      "Fog/Smog/Smoke" = "Fog/Smog/Smoke",
+      "Blowing Sand/Dirt" = "Blowing Sand/Dirt",
+      "Other" = "Other"
+    ),
+    selected = "Clear"
   )
 )
 
-page_two_mainPanel <- mainPanel(
+# Main panel for page two, consisting of visualization and paragraphs.
+mainPanel2 <- mainPanel(
   h2("Bar Chart: Number of Collisions vs. Weather Type"),
-  plotOutput("plot")
+  p(
+    "A question we wanted to answer was: what is the relationship between the
+    weather and the severity of a collision?"
+  ),
+  p(
+    "The following bar chart displays the number of collisions for each
+    weather type in Washington in 2017. It is further broken down by how severe
+    the collision was, as shown in the color-coded bars."
+  ),
+  plotOutput("plot"),
+  p(
+    "From this visualization, we can conclude that in all weather types, the
+    most common severity description reported in 2017 was Property Damage Only
+    Collision followed by Injury Collision. The least common severity
+    description recorded was Fatality Collision. Among all other weather types,
+    Clear was the weather type that had the most Property Damage Only
+    Collision, Injury Collision, and Serious Injury Collision. It was
+    interesting that the clear weather type had the most collisions total
+    and the most serious injury collisions compared to raining or overcast."
+  )
 )
 
+# Creating tab panel for page two.
 page_two <- tabPanel(
   "Bar Chart",
   sidebarLayout(
-    page_two_sidePanel,
-    page_two_mainPanel
+    sidePanel2,
+    mainPanel2
   )
 )
 
