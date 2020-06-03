@@ -21,9 +21,9 @@ server <- function(input, output) {
     })
     # Create pie chart visualization based on user inputs.
     output$chart <- renderPlotly({
-      if(input$severity == "All") {
+      if (input$severity == "All") {
         draw_pie_chart(traffic_collision)
-      }else {
+      } else {
         relative_data <- traffic_collision %>%
           filter(SEVERITYDESC == input$severity)
         draw_pie_chart(relative_data)
