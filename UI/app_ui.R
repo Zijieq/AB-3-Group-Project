@@ -1,3 +1,25 @@
+# A single page overview
+page_zero <- tabPanel(
+  "Introduction",
+  h1("Collisions tracker for Washington 2017"),
+  p("We will be retrieving the 2017 Washington State collisions dataset from
+  the offical Seattle Government Website to present you collisions happened in
+  Washington State at a macroscopic level, help you form a better comprehension
+  of the dataset through three interactive programs in the application."),
+  img(src = "https://2dwfom3kqsyf3qu3fw12n19r-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/When-Self-Driving-Cars-Kill-The-Legal-Implications.jpg",
+      height = 400, width = 600),
+  p(""),
+  p("The app will show the charts of your selection to help you explore
+     the data and understand our conclusion on collisions in 2017."),
+  p("- Which area of Washington State had the highest amount of traffic
+     collisions in different time frame of 2017, and which type of collisions
+    happened in which areas in Seattle 2017?"),
+  p("- what is the relationship between the weather and the severity of
+    a collision?"),
+  p("- How does the percentage of different address types changes with
+    the change of different levels of severity in collisions?"),
+)
+
 # Create side panel for severity selector and date input.
 page_one_sidepanel <- sidebarPanel(
   selectInput(
@@ -137,7 +159,7 @@ page_three <- tabPanel(
 page_summary_mainPanel <- mainPanel(
   h2("Key Takeaways"),
   p(
-    "From the questions that inspired us to explore this dataset, we have found 
+    "From the questions that inspired us to explore this dataset, we have found
     some patterns in the collisions that have occured in Washington in 2017."
   ),
   p(
@@ -172,7 +194,7 @@ page_summary_mainPanel <- mainPanel(
     The least common severity description recorded was Fatality Collision.
     Among all other weather types, Clear was the weather type that had the
     most Property Damage Only Collision, Injury Collision, and Serious Injury
-    Collision. It was interesting that the clear weather type had the most 
+    Collision. It was interesting that the clear weather type had the most
     collisions total and the most serious injury collisions compared to raining
     or overcast."
   )
@@ -187,10 +209,11 @@ page_summary <- tabPanel(
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "2017 Collisions in Washington",
-  page_one,
-  page_two,
-  page_three,
-  page_summary
+    "2017 Collisions in Washington",
+    page_zero,
+    page_one,
+    page_two,
+    page_three,
+    page_summary
   )
 )
