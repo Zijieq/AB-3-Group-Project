@@ -170,6 +170,7 @@ page_summary_mainPanel <- mainPanel(
     Downtown Seattle area and gradually got less as it moved farther away from
     the city. Property Damage Only was the most frequent collision in Seattle."
   ),
+  HTML('<img src="MAP.png"/>'),
   p(
     "Secondly, we wanted to determine the relationship between the weather
     and number of collisions. We visualized which weather type had the
@@ -184,6 +185,7 @@ page_summary_mainPanel <- mainPanel(
     most collisions total and the most serious injury collisions compared to
     raining or overcast."
   ),
+  HTML('<img src="bar_plot.png"/>'),
   p(
     "Lastly, we looked at the relationship between address types and severity
     of a collision. In the pie chart, we visualized the percentage of address 
@@ -197,7 +199,8 @@ page_summary_mainPanel <- mainPanel(
     Collision. It was interesting that the clear weather type had the most
     collisions total and the most serious injury collisions compared to raining
     or overcast."
-  )
+  ),
+  HTML('<img src="pie_chart.png"/>')
 )
 
 # Tab panel for Summary page.
