@@ -3,11 +3,14 @@ page_zero <- tabPanel(
   "Introduction",
   h1("Analysis Overview"),
   p("We retrieved the 2017 Washington State collisions dataset from
-  the offical Seattle Government Website to present you collisions happened in
-  Washington State at a macroscopic level. Our goal is to help inform the
-  public of the traffic collision rates by analyzing various variables,
-  such as weather, address type, and date. We have included three interactive
-  visualizations of our findings to answer questions we were interested in."),
+  the offical",
+  tags$a(href = "https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d",
+         "Seattle Government Website"),
+  "to present you collisions happened in Washington State at a macroscopic
+  level. Our goal is to help inform the public of the traffic collision rates
+  by analyzing various variables,such as weather, address type, and date.
+  We have included three interactivevisualizations of our findings to answer
+  questions we were interested in."),
   img(
     src = "https://2dwfom3kqsyf3qu3fw12n19r-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/When-Self-Driving-Cars-Kill-The-Legal-Implications.jpg",
       height = 400, width = 600),
