@@ -3,13 +3,13 @@ page_zero <- tabPanel(
   "Introduction",
   h1("Analysis Overview"),
   p("We retrieved the 2017 Washington State collisions dataset from
-  the offical",
+  the official",
   tags$a(href = "https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d",
          "Seattle Government Website"),
   "to present you collisions happened in Washington State at a macroscopic
   level. Our goal is to help inform the public of the traffic collision rates
-  by analyzing various variables,such as weather, address type, and date.
-  We have included three interactivevisualizations of our findings to answer
+  by analyzing various variables such as weather, address type, and date.
+  We have included three interactive visualizations of our findings to answer
   questions we were interested in."),
   img(
     src = "https://2dwfom3kqsyf3qu3fw12n19r-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/When-Self-Driving-Cars-Kill-The-Legal-Implications.jpg",
@@ -53,7 +53,7 @@ page_one_mainpanel <- mainPanel(
   p("Map is a better choice to build visualization to tell
     users how the collisions spread out in Washington State.
     And it is clear to tell users how many injuries in which areas
-    by setting a range users would like to know.As you zoom in to
+    by setting a range users would like to know. As you zoom in to
     look at the information in more detail, most of the traffic collisions
     happened within the downtown area of Seattle (nearly 2800 occurrences),
     followed by area which is in the west of Seattle
