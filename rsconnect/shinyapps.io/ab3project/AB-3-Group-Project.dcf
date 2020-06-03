@@ -5,8 +5,8 @@ account: ab3project
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2396882
-bundleId: 3219803
+bundleId: 3220701
 url: https://ab3project.shinyapps.io/AB-3-Group-Project/
-when: 1591124856.1324
+when: 1591141665.61848
 asMultiple: FALSE
 asStatic: FALSE

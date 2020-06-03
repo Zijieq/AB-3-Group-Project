@@ -1,5 +1,6 @@
 library("dplyr")
 library("ggplot2")
+library("plotly")
 
 # Creating bar plot to see relationship between weather and type of collisions.
 draw_bar_plot <- function(dataframe) {
@@ -10,5 +11,6 @@ draw_bar_plot <- function(dataframe) {
     geom_bar(mapping = aes(x = WEATHER, fill = SEVERITYDESC)) +
     labs(x = "Weather Type", y = "Count",
          title = "Number of Collisions vs. Weather Type")
+  plot <- ggplotly(plot)
   return(plot)
 }
