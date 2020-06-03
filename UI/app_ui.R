@@ -45,7 +45,7 @@ page_one_sidepanel <- sidebarPanel(
 page_one_mainpanel <- mainPanel(
   h2("Traffic Collisions in Washington State 2017"),
   p("Which area of Washington had the highest amount of traffic collisions
-  in different time frame of 2017, and what type of collisions happened in 
+  in different time frame of 2017, and what type of collisions happened in
     various areas in Seattle 2017?"),
   p("Map is a better choice to build visualization to tell
     users how the collisions spread out in Washington State.
@@ -163,12 +163,12 @@ page_three <- tabPanel(
 page_summary_mainpanel <- mainPanel(
   h2("Key Takeaways"),
   p(
-    "From the questions that inspired us to explore this dataset, we have found
-    some patterns in the collisions that have occured in Washington in 2017."
+    "From the questions that inspired us to explore this dataset, we found
+    some patterns in the collisions that occured in Washington in 2017."
   ),
   p(
-    "The first subject we wanted to explore was the areas in Washington that had
-    more collisions, and whether a specific time frame had more/less
+    "The first subject we wanted to explore was the areas in Washington that
+    had more collisions, and whether a specific time frame had more/less
     collisions. The map could be filtered down to show specific collision
     severities as well as date range. Overall we noticed that more traffic
     collisions occured in Downtown Seattle area and gradually got less as it
