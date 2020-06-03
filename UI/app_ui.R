@@ -1,3 +1,27 @@
+# A single page overview
+page_zero <- tabPanel(
+  "Introduction",
+  h1("Analysis Overview"),
+  p("We retrieved the 2017 Washington State collisions dataset from
+  the offical Seattle Government Website to present you collisions happened in
+  Washington State at a macroscopic level. Our goal is to help inform the
+  public of the traffic collision rates by analyzing various variables,
+  such as weather, address type, and date. We have included three interactive
+  visualizations of our findings to answer questions we were interested in."),
+  img(
+    src = "https://2dwfom3kqsyf3qu3fw12n19r-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/When-Self-Driving-Cars-Kill-The-Legal-Implications.jpg",
+      height = 400, width = 600),
+  p(""),
+  p("The three questions we will be answering are:"),
+  p("- Which area in Washington had the highest amount of traffic
+    collisions in different time frame of 2017, and which areas had
+    more instances of a collision type?"),
+  p("- What is the relationship between the weather and the severity of
+    a collision?"),
+  p("- How does the percentage of different address types changes with
+    the change of different levels of severity in collisions?"),
+)
+
 # Create side panel for severity selector and date input.
 page_one_sidepanel <- sidebarPanel(
   selectInput(
@@ -20,10 +44,9 @@ page_one_sidepanel <- sidebarPanel(
 # Main panel for page one with visualization and paragraphs.
 page_one_mainpanel <- mainPanel(
   h2("Traffic Collisions in Washington State 2017"),
-  p("A question we try to use this map to answer is:
-    Which area of Washington had the highest
-    amount of traffic collisions in different time frame of 2017,
-    and which type of collisions happened in which areas in Seattle 2017?"),
+  p("Which area of Washington had the highest amount of traffic collisions
+  in different time frame of 2017, and what type of collisions happened in 
+    various areas in Seattle 2017?"),
   p("Map is a better choice to build visualization to tell
     users how the collisions spread out in Washington State.
     And it is clear to tell users how many injuries in which areas
@@ -155,6 +178,7 @@ page_summary_mainpanel <- mainPanel(
     such as reflective strips or bright-colored signs for buildings that have
     been more susceptible to such collisions."
   ),
+  HTML('<img src="MAP.png"/>'),
   p(
     "Secondly, we wanted to determine the relationship between the weather
     and number of collisions. We visualized which weather type had the
@@ -171,6 +195,7 @@ page_summary_mainpanel <- mainPanel(
     more emphasis in informing drivers to be cautious throughout all types of
     weather, even when it appears to be perfect and clear."
   ),
+  HTML('<img src="bar_plot.png"/>'),
   p(
     "Lastly, we looked at the relationship between address types and severity
     of a collision. In the pie chart, we visualized the percentage of address
@@ -190,7 +215,8 @@ page_summary_mainpanel <- mainPanel(
     easier. One suggestion we came up with is that the traffic department
     could add more radar-enforced speed warnings in blocks with high
     collision rates so that drivers are more conscious with their speed."
-  )
+  ),
+  HTML('<img src="pie_chart.png"/>')
 )
 
 # Tab panel for Summary page.
@@ -202,10 +228,11 @@ page_summary <- tabPanel(
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "2017 Collisions in Washington",
-  page_one,
-  page_two,
-  page_three,
-  page_summary
+    "2017 Collisions in Washington",
+    page_zero,
+    page_one,
+    page_two,
+    page_three,
+    page_summary
   )
 )
