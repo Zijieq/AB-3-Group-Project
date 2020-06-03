@@ -96,8 +96,8 @@ page_two_sidepanel <- sidebarPanel(
 page_two_mainpanel <- mainPanel(
   h2("Bar Plot: Number of Collisions vs. Weather Type"),
   p(
-    "A question we want to answer is: what is the relationship between the
-    weather and the severity of a collision?"
+    "What is the relationship between the weather and the severity of a
+    collision?"
   ),
   p(
     "The following bar plot displays the number of collisions for each
@@ -134,12 +134,12 @@ page_three_sidepanel <- sidebarPanel(
 # Main panel for page three, consisting of visualization and paragraphs.
 page_three_mainpanel <- mainPanel(
   h2(
-    "Pie Chart: Percent of Address Types involved in Various Collision
+    "Pie Chart: Percent of Address Types Involved in Various Collision
     Severities"
      ),
   p(
-    "A question we want to answer is: How does the percentage of different
-    address types change in different levels of collision severities?"
+    "How does the percentage of different address types change in different
+    levels of collision severities?"
   ),
   p(
     "The following pie charts display the percent distribution of each type of
