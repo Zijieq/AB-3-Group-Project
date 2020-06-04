@@ -6,7 +6,7 @@ page_zero <- tabPanel(
   the official",
   tags$a(href = "https://data.seattle.gov/Land-Base/Collisions/9kas-rb8d",
          "Seattle Government Website"),
-  "to present you collisions happened in Washington State at a macroscopic
+  "to present collisions that happened in Washington State at a macroscopic
   level. Our goal is to help inform the public of the traffic collision rates
   by analyzing various variables such as weather, address type, and date.
   We have included three interactive visualizations of our findings to answer
