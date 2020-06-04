@@ -12,7 +12,7 @@ page_zero <- tabPanel(
   We have included three interactive visualizations of our findings to answer
   questions we were interested in."),
   img(
-    src = "https://2dwfom3kqsyf3qu3fw12n19r-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/When-Self-Driving-Cars-Kill-The-Legal-Implications.jpg",
+    src = "car.jpg",
       height = 400, width = 600),
   p(""),
   p("The three questions we will be answering are:"),
